@@ -7,12 +7,19 @@ module.exports.Profile= function(req,res) {
 }
 
 module.exports.signIn= function(req,res) {
+    if(req.isAuthenticated()){
+        return res.redirect('/users/profile');
+    }
     return res.render('user_sign_in',{
         title:"Sign In Page"
+
     });
 }
 
 module.exports.signUp= function(req,res) {
+   if(req.isAuthenticated()){
+        return res.redirect('/users/profile');
+    }
     return res.render('user_sign_up',{
         title:"Sign Up Page"
     });
@@ -26,6 +33,7 @@ module.exports.create= function(req,res) {
     User.findOne({email:req.body.email}).then(function(user){
         
         if(!user){
+            
                  User.create(req.body).then(function(user){
                 return res.redirect('/users/sign-in');
             });
@@ -37,18 +45,16 @@ module.exports.create= function(req,res) {
 }
 
 module.exports.createSession= function(req,res) {
-    User.findOne({email:req.body.email}).then(function(user){
-        if(user){
-            if(user.password!=req.body.password){
-                return res.redirect('back');
-            }
-            res.cookie('user_id',user.id);
-            return res.redirect('/users/profile');
-        }else{
-            return res.redirect('back');
-        }
-    }
-    );
+    return res.redirect('/');
 }
 
+module.exports.destroySession= function(req,res,next) {
+    req.logout(function(err){
+        if(err){
+            console.log(err);
+            return;
+        }
+        return res.redirect('/');
+    });
+}
 
