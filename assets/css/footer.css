@@ -1,0 +1,91 @@
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 3;
+  margin: 0;
+  padding: 0; }
+
+a {
+  color: #007bff;
+  text-decoration: none; }
+  a:hover {
+    text-decoration: underline; }
+
+/* Styles for the footer section */
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 30px 0 30px;
+  margin-top: 50px;
+  padding: 50px 0; }
+  footer ul {
+    list-style: none; }
+  footer .col-md-4 ul {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f7f7f7;
+    padding: 20px; }
+    footer .col-md-4 ul li {
+      flex: 1 1 50%; }
+  footer .col-md-4 form {
+    max-width: 300px;
+    margin: 0 auto;
+    text-align: center; }
+  footer .footer-divider {
+    border: 1px solid #fff;
+    margin-top: 30px;
+    margin-bottom: 30px; }
+  footer .footer-bottom {
+    text-align: center;
+    margin-top: 20px; }
+    footer .footer-bottom p {
+      margin-bottom: 0; }
+  footer .footer-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; }
+    @media (max-width: 768px) {
+      footer .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center; } }
+    footer .footer-container .footer-section {
+      flex-basis: 30%; }
+      footer .footer-container .footer-section h3 {
+        font-size: 18px;
+        font-weight: bold;
+        margin-top: 0; }
+      footer .footer-container .footer-section ul {
+        list-style: none;
+        margin: 0;
+        padding: 0; }
+        footer .footer-container .footer-section ul li {
+          margin-bottom: 10px; }
+          footer .footer-container .footer-section ul li a {
+            color: #fff; }
+            footer .footer-container .footer-section ul li a:hover {
+              text-decoration: underline; }
+      footer .footer-container .footer-section form {
+        margin-top: 20px; }
+        footer .footer-container .footer-section form input[type="email"] {
+          width: 100%;
+          padding: 10px;
+          border-radius: 5px;
+          border: none;
+          font-size: 16px;
+          margin-bottom: 10px; }
+        footer .footer-container .footer-section form button[type="submit"] {
+          padding: 10px 20px;
+          border-radius: 5px;
+          border: none;
+          background-color: #007bff;
+          color: #fff;
+          font-weight: bold;
+          font-size: 16px;
+          cursor: pointer; }
+          footer .footer-container .footer-section form button[type="submit"]:hover {
+            background-color: #0062cc; }

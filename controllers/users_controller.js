@@ -1,6 +1,7 @@
 const User = require('../models/user');
 
 module.exports.Profile= function(req,res) {
+    
     return res.render('user_profile',{
         title:"Users Page"
     });
@@ -33,7 +34,6 @@ module.exports.create= function(req,res) {
     User.findOne({email:req.body.email}).then(function(user){
         
         if(!user){
-            
                  User.create(req.body).then(function(user){
                 return res.redirect('/users/sign-in');
             });
