@@ -1,11 +1,17 @@
 const User = require('../models/user');
+const Post = require('../models/post');
 
 module.exports.Profile= function(req,res) {
-    
+    if(req.isAuthenticated()){
     return res.render('user_profile',{
         title:"Users Page"
     });
 }
+else{
+    return res.redirect('/users/sign-in');
+}
+}
+
 
 module.exports.signIn= function(req,res) {
     if(req.isAuthenticated()){
@@ -57,4 +63,8 @@ module.exports.destroySession= function(req,res,next) {
         return res.redirect('/');
     });
 }
+
+
+
+
 

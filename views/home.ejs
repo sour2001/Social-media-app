@@ -1,7 +1,25 @@
+<h1>Codeial / Home page</h1>
+<p>Welcome to the home page.</p>
 
-        <h1>Codeial / Home page</h1>
-        <p>Welcome to the home page.</p>
-        <p><a href="/about">About</a></p>
-        <p><a href="/contact">Contact</a></p>
-        
-       
+<section>
+    <form action="/posts/create" id="new-post" method="post">
+        <textarea name="content" id="content" cols="30" rows="10" placeholder="Type here"></textarea>
+        <input type="submit" value="Post">
+    </form>
+
+    <div id="post-list-container">
+        <ul id="post-list">
+            <% for(let post of posts){ %>
+                <li>
+                    <%= post.content %>
+                    <small>
+                        <% if (post.user) { %>
+                          <%=post.user.name%>
+                        <% } %>
+                      </small>
+                      
+                </li>
+            <% } %>
+        </ul>
+    </div>
+</section>
