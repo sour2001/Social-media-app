@@ -22,6 +22,7 @@ module.exports.home = function(req, res) {
         path: 'user'
       }
     })
+    
     .exec()
     .then(posts => {
       return res.render('home', {
