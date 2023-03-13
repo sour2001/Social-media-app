@@ -1,6 +1,6 @@
 const mongoose=require('mongoose');
 const Schema=mongoose.Schema;
-const postSchema=new Schema({
+const commentSchema=new Schema({
     content:{
         type:String,
         required:true
@@ -9,17 +9,14 @@ const postSchema=new Schema({
         type:Schema.Types.ObjectId,
         ref:'User'
     },
-    comments:[
-        {
-            type:Schema.Types.ObjectId,
-            ref:'Comment'
-        }
-    ]
-    
+    post:{
+        type:Schema.Types.ObjectId,
+        ref:'Post'
+    }
 },{
     timestamps:true
 });
-const Post=mongoose.model('Post',postSchema);
-module.exports=Post;
+const Comment=mongoose.model('Comment',commentSchema);
+module.exports=Comment;
 
- 
+
