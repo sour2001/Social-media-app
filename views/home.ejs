@@ -9,6 +9,9 @@
 
     <div id="post-list-container">
         <ul id="post-list">
+            
+                <h1>Posts</h1>
+                <% if(locals.user) { %>
             <% for(let post of posts){ %>
                 <li>
                     <%= post.content %>
@@ -20,6 +23,11 @@
                       
                 </li>
             <% } %>
+            <% } %>
+
+            
+        
+
         </ul>
     </div>
 </section>
