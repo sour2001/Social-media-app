@@ -1,18 +1,24 @@
 const User = require('../models/user');
 const Post = require('../models/post');
 
-module.exports.Profile= function(req,res) {
-    if(req.isAuthenticated()){
-    return res.render('user_profile',{
-        title:"Users Page"
+module.exports.profile = function(req, res) {
+    User.findById(req.params.id).then(function(user) {
+        return res.render('user_profile', {
+            title: 'User Profile',
+            profile_user: user
+        });
     });
 }
-else{
-    return res.redirect('/users/sign-in');
-}
-}
 
-
+module.exports.update = function(req, res) {
+    if(req.user.id == req.params.id) {
+        User.findByIdAndUpdate(req.params.id,req.body).then(function(user) {
+            return res.redirect('back');
+        });
+    } else {
+        return res.status(401).send('Unauthorized');
+    }
+}
 module.exports.signIn= function(req,res) {
     if(req.isAuthenticated()){
         return res.redirect('/users/profile');
