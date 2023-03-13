@@ -1,0 +1,82 @@
+/* Define variables */
+$primary-color: #fff;
+$secondary-color: #000;
+$post-bg-color: #333;
+$button-bg-color: #000;
+$button-text-color: #fff;
+
+/* Apply variables */
+h1 {
+  color: $primary-color;
+}
+
+#feed-posts {
+  color: $primary-color;
+  background-color: $secondary-color;
+
+  h4 {
+    color: $primary-color;
+  }
+
+  textarea {
+    color: $primary-color;
+    background-color: $post-bg-color;
+    border: none;
+    resize: none;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  input[type="submit"] {
+    background-color: $button-bg-color;
+    color: $button-text-color;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: darken($button-bg-color, 10%);
+    }
+  }
+
+  #posts-list-container {
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      li {
+        background-color: $post-bg-color;
+        margin-bottom: 10px;
+        padding: 10px;
+
+        h5 {
+          color: $primary-color;
+        }
+      }
+    }
+  }
+}
+
+#user-friends {
+  color: $primary-color;
+  background-color: $secondary-color;
+
+  h4 {
+    color: $primary-color;
+  }
+
+  li {
+    margin-bottom: 10px;
+
+    a {
+      color: $primary-color;
+
+      &:hover {
+        color: darken($primary-color, 10%);
+      }
+    }
+  }
+}

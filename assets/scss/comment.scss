@@ -1,0 +1,32 @@
+li {
+    padding: 10px;
+    background-color: #333;
+    color: white;
+    font-size: 16px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    
+    p {
+      margin: 0;
+      font-size: 14px;
+      
+      small {
+        float: right;
+        
+        a {
+          color: white;
+          text-decoration: none;
+          font-size: 12px;
+          
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+      
+      strong {
+        color: #ffd700;
+      }
+    }
+  }
+  

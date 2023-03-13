@@ -1,150 +1,101 @@
-$body-font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-$body-font-size: 16px;
-$body-line-height: 3;
-
-body {
-  font-family: $body-font-family;
-  font-size: $body-font-size;
-  line-height: $body-line-height;
-  margin: 0;
-  padding: 0;
-}
-
-a {
-  color: #007bff;
-  text-decoration: none;
-
-  &:hover {
-    text-decoration: underline;
-  }
-}
-
-/* Styles for the footer section */
-
-$footer-bg-color: #333;
-$footer-text-color: #fff;
-$footer-padding-top: 30px;
-$footer-padding-bottom: 30px;
-$footer-container-max-width: 1100px;
-$footer-container-margin: 0 auto;
-$footer-container-display: flex;
-$footer-container-flex-wrap: wrap;
-$footer-container-justify-content: space-between;
-
 footer {
-  background-color: $footer-bg-color;
-  color: $footer-text-color;
-  padding: $footer-padding-top 0 $footer-padding-bottom;
-  margin-top: 50px;
+  background-color: #000000;
+  color: #ffffff;
   padding: 50px 0;
-
-  ul {
-    list-style: none;
-  }
-
-  .col-md-4 {
-    ul {
-      display: flex;
-      flex-wrap: nowrap;
-      justify-content: space-between;
-      align-items: center;
-      background-color: #f7f7f7;
-      padding: 20px;
-
-      li {
-        flex: 1 1 50%;
-      }
-    }
-
-    form {
-      max-width: 300px;
-      margin: 0 auto;
-      text-align: center;
-    }
-  }
-
-  .footer-divider {
-    border: 1px solid $footer-text-color;
-    margin-top: 30px;
-    margin-bottom: 30px;
-  }
-
-  .footer-bottom {
-    text-align: center;
-    margin-top: 20px;
-
-    p {
-      margin-bottom: 0;
-    }
-  }
-
-  .footer-container {
-    max-width: $footer-container-max-width;
-    margin: $footer-container-margin;
-    display: $footer-container-display;
-    flex-wrap: $footer-container-flex-wrap;
-    justify-content: $footer-container-justify-content;
-
-    @media (max-width: 768px) {
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-    }
-
-    .footer-section {
-      flex-basis: 30%;
-
+  
+  .container {
+  margin: 0 auto;
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  
+    .col-md-4 {
+      width: 33.33%;
+      padding: 0 15px;
+  
       h3 {
-        font-size: 18px;
-        font-weight: bold;
-        margin-top: 0;
+        font-size: 24px;
+        margin-bottom: 25px;
       }
-
+  
       ul {
         list-style: none;
         margin: 0;
         padding: 0;
-
+  
         li {
           margin-bottom: 10px;
-
+  
           a {
-            color: $footer-text-color;
-
+            color: #ffffff;
+            font-size: 16px;
+  
             &:hover {
-              text-decoration: underline;
+              color: #6c757d;
+            }
+  
+            i {
+              margin-right: 10px;
             }
           }
         }
       }
-
+  
+      p {
+        font-size: 16px;
+        margin-bottom: 25px;
+      }
+  
       form {
-        margin-top: 20px;
-
-        input[type="email"] {
-          width: 100%;
-          padding: 10px;
-          border-radius: 5px;
-          border: none;
-          font-size: 16px;
-          margin-bottom: 10px;
-        }
-
-        button[type="submit"] {
-          padding: 10px 20px;
-          border-radius: 5px;
-          border: none;
-          background-color: #007bff;
-          color: #fff;
-          font-weight: bold;
-          font-size: 16px;
-          cursor: pointer;
-
-          &:hover {
-            background-color: #0062cc;
+        .input-group {
+          display: flex;
+  
+          input {
+            flex: 1;
+            height: 50px;
+            padding: 10px;
+            border: none;
+            border-radius: 5px 0 0 5px;
+            background-color: #ffffff;
+            font-size: 16px;
+  
+            &::placeholder {
+              color: #6c757d;
+            }
+          }
+  
+          .input-group-btn {
+            button {
+              height: 50px;
+              border: none;
+              border-radius: 0 5px 5px 0;
+              background-color: #6c757d;
+              color: #ffffff;
+              font-size: 16px;
+              cursor: pointer;
+            }
           }
         }
       }
     }
   }
-}
+  }
+  hr {
+    border-top: 1px solid #6c757d;
+    margin: 50px 0;
+    }
+    
+    p.text-center {
+    margin: 0;
+    font-size: 16px;
+    a {
+      color: #ffffff;
+    
+      &:hover {
+        color: #6c757d;
+      }
+    }
+  }
+}    
+  
