@@ -1,5 +1,4 @@
 const User = require('../models/user');
-const Post = require('../models/post');
 
 module.exports.profile = function(req, res) {
     User.findById(req.params.id).then(function(user) {
@@ -13,10 +12,13 @@ module.exports.profile = function(req, res) {
 module.exports.update = function(req, res) {
     if(req.user.id == req.params.id) {
         User.findByIdAndUpdate(req.params.id,req.body).then(function(user) {
+            req.flash('success','Profile Updated Successfully');
             return res.redirect('back');
         });
     } else {
+        req.flash('error','Unauthorized');
         return res.status(401).send('Unauthorized');
+
     }
 }
 module.exports.signIn= function(req,res) {
