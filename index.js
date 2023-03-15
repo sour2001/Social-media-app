@@ -9,10 +9,8 @@ const passport=require('passport');
 const passportLocal=require('./config/passport-local-strategy');
 const MongoStore=require('connect-mongo');
 const sassMiddleware=require('node-sass-middleware');
-
-
-
-
+const flash=require('connect-flash');
+const customMware=require('./config/middleware');
 //middleware for sass
 app.use(sassMiddleware({
     src:'./assets/scss',
@@ -70,6 +68,9 @@ app.use(passport.session());
 
 //check if session cookie is present
 app.use(passport.setAuthenticatedUser);
+//use flash
+app.use(flash());
+app.use(customMware.setFlash);
 
 app.use('/',require('./routes/index'));
 app.listen(port,function(err){

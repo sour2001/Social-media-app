@@ -6,6 +6,18 @@
     </head>
     <body>
         <%- include('_header'); %>
+        <% if(flash.success && flash.success.length) { %>
+        <div class="flash success">
+            <%= flash.success %>
+        </div>
+        <% } %>
+        <% if(flash.error && flash.error.length) { %>
+        <div class="flash error">
+            <%= flash.error %>
+        </div>
+        <% } %>
+        
+
         <main id="layout-main">
         <%- body %>
         </main>

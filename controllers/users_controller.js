@@ -40,6 +40,7 @@ module.exports.signUp= function(req,res) {
 
 module.exports.create= function(req,res) {
     if(req.body.password!=req.body.confirm_password){
+        req.flash('error','Passwords or account do not match');
         return res.redirect('back');
     }
     
@@ -47,9 +48,11 @@ module.exports.create= function(req,res) {
         
         if(!user){
                  User.create(req.body).then(function(user){
+                    req.flash('success','Account Created Successfully');
                 return res.redirect('/users/sign-in');
             });
         }else{
+            req.flash('error','Account Already Exists');
             return res.redirect('back');
         }
     }
@@ -57,15 +60,19 @@ module.exports.create= function(req,res) {
 }
 
 module.exports.createSession= function(req,res) {
+    req.flash('success','Logged in Successfully');
     return res.redirect('/');
 }
 
+
+    
 module.exports.destroySession= function(req,res,next) {
     req.logout(function(err){
         if(err){
             console.log(err);
             return;
         }
+        req.flash('success','You have logged out!');
         return res.redirect('/');
     });
 }

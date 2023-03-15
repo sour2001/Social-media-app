@@ -27,7 +27,6 @@ passport.serializeUser(function(user,done){
 //deserializing the user to decide which key is to be kept in the cookies
 passport.deserializeUser(function(id,done){
     User.findById(id).then(function(user){
-
         return done(null,user);
     }
     );
@@ -56,12 +55,6 @@ passport.setAuthenticatedUser=function(req,res,next){
     }
     next();
 }
-
-
-
-
-
-
 module.exports=passport;
         
     
