@@ -3,13 +3,14 @@ const LocalStrategy=require('passport-local').Strategy;
 const User=require('../models/user');
 //authentication using passport
 passport.use(new LocalStrategy({
-    usernameField:'email'
+    usernameField:'email',
+    passReqToCallback:true
 },
-function(email,password,done){
+function(req,email,password,done){
     //find a user and establish the identity
     User.findOne({email:email}).then(function(user){
         if(!user || user.password!=password){
-            console.log('Invalid username/password');
+            req.flash('error','Invalid Username/Password');
             return done(null,false);
         }
         return done(null,user);
@@ -17,6 +18,10 @@ function(email,password,done){
     );
 }
 ));
+
+
+
+
 
 //serializing the user to decide which key is to be kept in the cookies
 passport.serializeUser(function(user,done){
