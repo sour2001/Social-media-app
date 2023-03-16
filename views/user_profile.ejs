@@ -3,13 +3,13 @@
         <h1>Codeial/Profile page</h1>
 
         <p><%=profile_user.name %></p>
-    <link rel="stylesheet" href="/css/user_profile.css">
         <p><%=profile_user.email %></p>
 
         <% if(user.id==profile_user.id){ %>
-            <form action="/users/update/<%=profile_user._id%>" method="POST">
+            <form action="/users/update/<%=profile_user._id%>" enctype="multipart/form-data" method="POST">
                 <input type="text" name="name" value="<%=profile_user.name%>">
                 <input type="text" name="email" value="<%=profile_user.email%>">
+                <input type="file" name="avatar" placeholder="Privacy-Pic">
                 <input type="submit" value="Update">
             </form>
             <%}else{%>
