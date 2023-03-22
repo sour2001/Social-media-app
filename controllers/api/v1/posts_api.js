@@ -11,10 +11,6 @@ module.exports.index=async function(req,res){
             path:'user'
         }
     });
-
-
-
-
     return res.status(200).json({
         message:"List of posts",
         posts:posts
