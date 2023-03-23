@@ -3,6 +3,8 @@ const Comment = require('../models/comment');
 const commentsMailer = require('../mailers/comments_mailer');
 const queue = require('../config/kue');
 const commentEmailWorker = require('../workers/comment_email_worker');
+const Like = require('../models/like');
+
 
 
 
@@ -50,32 +52,33 @@ module.exports.create = async function(req, res) {
 module.exports.destroy = async function(req, res) {
   try {
     let comment = await Comment.findById(req.params.id);
-    if (!comment) {
-      return res.status(404).json({
-        message: 'Comment not found!',
-      });
+    if (comment.user == req.user.id) {
+      let postId = comment.post;
+      comment.deleteOne();
+
+      let post = await Post.findByIdAndUpdate(postId, {$pull: {comments: req.params.id}});
+
+      await Like.deleteMany({likeable: comment._id, onModel: 'Comment'});
+
+      if (req.xhr) {
+        return res.status(200).json({
+          data: {
+            comment_id: req.params.id,
+          },
+          message: 'Comment deleted!',
+        });
+      }
+      req.flash('success', 'Comment deleted!');
+      return res.redirect('back');
+    } else {
+      req.flash('error', 'Unauthorized');
+      return res.redirect('back');
     }
-    if (comment.user.toString() !== req.user._id.toString()) {
-      return res.status(403).json({
-        message: 'You are not authorized to delete this comment!',
-      });
-    }
-    let postId = comment.post;
-    await comment.deleteOne();
-    await Post.findByIdAndUpdate(postId, { $pull: { comments: req.params.id } });
-    if (req.xhr) {
-      return res.status(200).json({
-        data: {
-          comment_id: req.params.id,
-        },
-        message: 'Comment deleted!',
-      });
-    }
-    req.flash('success', 'Comment deleted!');
-    return res.redirect('back');
   } catch (err) {
     req.flash('error', err.message);
     console.error(err);
     return res.redirect('back');
   }
 };
+
+
