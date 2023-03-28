@@ -15,10 +15,6 @@ const flash=require('connect-flash');
 const customMware=require('./config/middleware');
 const noty=require('noty');
 
-
-
-
-
 //middleware for sass
 app.use(sassMiddleware({
     src:'./assets/scss',
@@ -30,10 +26,13 @@ app.use(sassMiddleware({
 
 
 
+
+
 const urlencodedParser=express.urlencoded({extended:false});
 app.use(urlencodedParser);
 app.use(cookieParser());
 app.use(express.static('./assets'));
+
 // make the uploads path available to the browser
 app.use('/uploads',express.static(__dirname+'/uploads'));
 

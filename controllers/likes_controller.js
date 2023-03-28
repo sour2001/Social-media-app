@@ -47,7 +47,7 @@ module.exports.toggleLike = async function(req, res){
 
         }
 
-        return res.json(200, {
+        return res.status(200).json({
             message: "Request successful!",
             data: {
                 deleted: deleted
@@ -56,10 +56,12 @@ module.exports.toggleLike = async function(req, res){
 
 
 
+
     }catch(err){
         console.log(err);
-        return res.json(500, {
-            message: 'Internal Server Error'
+        return res.status(500).json({
+            message: "Internal Server Error"
         });
+
     }
 }
