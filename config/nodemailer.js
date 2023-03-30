@@ -3,16 +3,7 @@ const ejs=require('ejs');
 const path=require('path');
 
 
-let transporter=nodemailer.createTransport({
-    service:'outlook',
-    host:'smtp.outlook.com',
-    port:587,
-    secure:false,
-    auth:{
-        user:'saurabhdahiya2@outlook.com',
-        pass:'Dahiya@1234'
-    }
-});
+let transporter=nodemailer.createTransport(env.smtp);
 
 let renderTemplate=(data,relativePath)=>{
     let mainHTML;
