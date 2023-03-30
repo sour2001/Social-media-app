@@ -34,7 +34,7 @@ module.exports.create = async function(req, res) {
       if (req.xhr) {
         return res.status(200).json({
           data: {
-            comment: comment,
+            comment: comment
           },
           message: 'Comment created!',
         });
