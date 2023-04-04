@@ -1,7 +1,11 @@
+
+port=8000;
+
+
 const development = {
     name: 'development',
     asset_path: './assets',    
-    session_cookie_key:'blahsomething',
+    session_cookie_key:process.env.CODEIAL_SESSION_COOKIE_KEY,
     db: 'new_codeial_development',
     smtp: {
         service:'outlook',
@@ -20,8 +24,27 @@ const development = {
 };
 
 const production = {
+
     name: 'production',
- 
+    asset_path: process.env.ASSET_PATH,    
+    session_cookie_key:process.env.CODEIAL_SESSION_COOKIE_KEY,
+    db: process.env.CODEIAL_DB,
+    smtp: {
+        service:'outlook',
+    host:'smtp.outlook.com',
+    port:587,
+    secure:false,
+    auth:{
+        user:process.env.GMAIL_USERNAME,
+        pass:process.env.GMAIL_PASSWORD
+    }
+    },
+    outlook_clientID:process.env.GOOGLE_CLIENT_ID,
+    outlook_clientSecret:process.env.GOOGLE_CLIENT_SECRET,
+    outlook_callbackURL:process.env.GOOGLE_CALLBACK_URL,
+    jwt_secret: process.env.CODEIAL_JWT_SECRET,
+    
 };
 
-module.exports = development;
+
+module.exports = eval(process.env.CODEIAL_ENVIRONMENT) == undefined ? development : eval(process.env.CODEIAL_ENVIRONMENT );

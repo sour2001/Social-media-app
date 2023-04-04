@@ -2,7 +2,8 @@ const express = require('express');
 const env = require('./config/environment');
 const cookieParser = require('cookie-parser');
 const app = express();
-const port = 8000;
+const port = env.port || 8000;
+
 const expressLayouts = require('express-ejs-layouts');
 const db = require('./config/mongoose');
 const session = require('express-session');
@@ -18,6 +19,7 @@ const path = require('path');
 
 const chatServer = require('http').Server(app);
 const chatSockets = require('./config/chat_sockets').chatSockets(chatServer);
+
 
 
 chatServer.listen(5000);
@@ -51,6 +53,7 @@ app.set('layout extractScripts', true);
 // set up the view engine
 app.set('view engine', 'ejs');
 app.set('views', './views');
+console.log(env.name);
 
 app.use(session({
   name: 'codeial',
