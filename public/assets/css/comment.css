@@ -1,0 +1,20 @@
+li {
+  padding: 10px;
+  background-color: #333;
+  color: white;
+  font-size: 16px;
+  margin-bottom: 10px;
+  border-radius: 5px; }
+  li p {
+    margin: 0;
+    font-size: 14px; }
+    li p small {
+      float: right; }
+      li p small a {
+        color: white;
+        text-decoration: none;
+        font-size: 12px; }
+        li p small a:hover {
+          text-decoration: underline; }
+    li p strong {
+      color: #ffd700; }

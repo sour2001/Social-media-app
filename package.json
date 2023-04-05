@@ -5,7 +5,7 @@
   "scripts": {
     "start": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prod_start": "set NODE_ENV=production && nodemon index.js"
+    "prod_start": "set \"NODE_ENV=production\" && nodemon index.js"
   },
   "author": "Sourabh",
   "license": "ISC",
@@ -18,11 +18,18 @@
     "connect-mongo": "^4.6.0",
     "cookie-parser": "^1.4.6",
     "crypto": "^1.0.1",
+    "del": "^4.1.1",
     "dotenv": "^16.0.3",
     "ejs": "^3.1.8",
     "express": "^4.18.2",
     "express-ejs-layouts": "^2.5.1",
     "express-session": "^1.17.3",
+    "gulp-cssnano": "^2.1.3",
+    "gulp-imagemin": "^7.0.0",
+    "gulp-rev": "^9.0.0",
+    "gulp-sass": "^5.1.0",
+    "gulp-uglify": "^3.0.2",
+    "gulp-uglify-es": "^1.0.4",
     "jsonwebtoken": "^9.0.0",
     "kue": "^0.11.6",
     "mongo-store": "^0.0.2",
@@ -39,6 +46,7 @@
     "passport-jwt": "^4.0.1",
     "passport-local": "^1.0.0",
     "rotating-file-stream": "^3.1.0",
+    "sass": "^1.60.0",
     "socket.io": "^4.6.1"
   },
   "repository": {
@@ -48,5 +56,8 @@
   "bugs": {
     "url": "https://github.com/sour2001/Social-media-app/issues"
   },
-  "homepage": "https://github.com/sour2001/Social-media-app#readme"
+  "homepage": "https://github.com/sour2001/Social-media-app#readme",
+  "devDependencies": {
+    "gulp": "^4.0.2"
+  }
 }

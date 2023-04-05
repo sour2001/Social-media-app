@@ -8,6 +8,8 @@ const accessLogStream=rfs.createStream('access.log',{
     path:logDirectory
 });
 
+console.log(process.env.ASSET_PATH);
+
 
 
 
@@ -63,5 +65,5 @@ const production = {
     }
 };
 
-
+console.log(process.env.CODEIAL_ENVIRONMENT);
 module.exports = eval(process.env.CODEIAL_ENVIRONMENT) == undefined ? development : eval(process.env.CODEIAL_ENVIRONMENT );
