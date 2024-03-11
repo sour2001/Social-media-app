@@ -1,4 +1,3 @@
-/* Default CSS for body and html */
 html, body {
   height: 100%;
   width: 100%;
@@ -83,23 +82,3 @@ form input[type="submit"]:hover {
 .error-message {
   color: #ff0000;
   margin-bottom: 10px; }
-
-/* Style for success messages */
-.success-message {
-  color: #00ff00;
-  margin-bottom: 10px; }
-
-/* Style for alerts */
-.alert {
-  padding: 10px;
-  border-radius: 5px;
-  margin-bottom: 20px;
-  font-weight: bold; }
-
-.alert-danger {
-  background-color: #ff0000;
-  color: #fff; }
-
-.alert-success {
-  background-color: #00ff00;
-  color: #fff; }

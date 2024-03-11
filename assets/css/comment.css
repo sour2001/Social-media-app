@@ -1,1 +1,36 @@
-li{padding:10px;background-color:#333;color:#fff;font-size:16px;margin-bottom:10px;border-radius:5px}li p{margin:0;font-size:14px}li p small{float:right}li p small a{color:#fff;text-decoration:none;font-size:12px}li p small a:hover{text-decoration:underline}li p strong{color:gold}
+/* CSS for Comments */
+li[id^="comment-"] {
+    list-style: none;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: #fff;
+  }
+  
+  li[id^="comment-"] p {
+    margin: 0;
+    color: #333; /* Adjust text color */
+  }
+  
+  li[id^="comment-"] small a.delete-comment-button {
+    color: #ff0000; /* Change the color to red or any other visible color */
+    text-decoration: none;
+    font-size: 14px;
+    margin-right: 10px;
+  }
+  
+  li[id^="comment-"] small a.delete-comment-button:hover {
+    text-decoration: underline;
+  }
+  
+  li[id^="comment-"] small a.toggle-like-button {
+    color: #007BFF;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  
+  li[id^="comment-"] small a.toggle-like-button:hover {
+    text-decoration: underline;
+  }
+  

@@ -1,0 +1,51 @@
+/* SCSS for SignUp Page */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f7f7f7;
+  margin: 0;
+  padding: 0; }
+
+h1 {
+  font-size: 24px;
+  text-align: center;
+  margin-top: 30px;
+  color: #333; }
+
+form {
+  max-width: 300px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); }
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 3px; }
+
+input[type="submit"] {
+  background-color: #007BFF;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer; }
+
+input[type="submit"]:hover {
+  background-color: #0056b3; }
+
+a {
+  display: block;
+  text-align: center;
+  margin-top: 20px;
+  font-size: 16px;
+  color: #007BFF;
+  text-decoration: none; }
+
+a:hover {
+  color: #0056b3; }

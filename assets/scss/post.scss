@@ -4,7 +4,6 @@ li {
   margin-bottom: 10px;
   display: flex;
   flex-direction: column;
- 
 
   p {
     font-size: 16px;
@@ -31,7 +30,8 @@ li {
     margin-top: 10px;
 
     form {
-      input[type="text"] {
+      input[type="text"],
+      input[type="submit"] {
         padding: 5px;
         border-radius: 5px;
         border: 1px solid #ccc;
@@ -40,11 +40,9 @@ li {
       }
 
       input[type="submit"] {
-        padding: 5px;
-        border-radius: 5px;
-        border: none;
         background-color: #f00;
         color: #fff;
+        border: none;
         cursor: pointer;
       }
     }
@@ -56,12 +54,14 @@ li {
         padding: 0;
 
         li {
-          margin-bottom: 5px;
           border: 1px solid #ccc;
           padding: 5px;
+
+          &:not(:last-child) {
+            margin-bottom: 5px;
+          }
         }
       }
     }
   }
 }
-
