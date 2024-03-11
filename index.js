@@ -17,7 +17,10 @@ const passportLocal = require('./config/passport-local-strategy');
 const passportJWT = require('./config/passport-jwt-strategy');
 const passportGoogle = require('./config/passport-google-oauth2-strategy');
 const MongoStore = require('connect-mongo');
+
 const sassMiddleware = require('node-sass-middleware');
+
+
 const flash = require('connect-flash');
 const customMware = require('./config/middleware');
 const path = require('path');
@@ -25,6 +28,7 @@ const path = require('path');
 const chatServer = require('http').Server(app);
 const chatSockets = require('./config/chat_sockets').chatSockets(chatServer);
 
+app.use(express.static('public'));
 
 
 chatServer.listen(5000);
@@ -66,7 +70,7 @@ console.log(env.name);
 app.use(session({
   name: 'codeial',
   // TODO change the secret before deployment in production mode
-  secret: env.session_cookie_key,
+  secret:'my',
   saveUninitialized: false,
   resave: false,
   cookie:{
